@@ -42,7 +42,7 @@ Facade is a class that provides a simple interface (or a connection point for th
 3. Make all the client code communicate with the subsystem only via the facade. This will protect the client code. For example when a subsystem gets upgraded to a new version, you will only need to modify the code in the facade.
 4. It is possible to create various facades to avoid the facade getting too big.
 
-Example: Cooking
+#### Example: Cooking
 
 In the following example we create a facade for preparing a meal. As demonstrated below some methods from the sub-systems are not called in the facade making them unavailable for the client code.
 
