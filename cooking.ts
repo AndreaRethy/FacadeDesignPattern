@@ -1,5 +1,5 @@
 // Example for Facade implementation with an example of cooking
-
+// Step 1. Creating sub-systems
 class BuyIngredients {
 
     public goToSupermarket(): string {
@@ -14,30 +14,30 @@ class BuyIngredients {
 }
 
 class DoPreparations {
-    public prepareEquipment() {
+    public prepareEquipment(): string {
         return 'Prepare kitchen equipment\n';
     }
 
-    public prepareIngredients() {
+    public prepareIngredients(): string {
         return 'Gather ingredients on kitchen counter\n';
     }
 
-    public chopIngredients() {
+    public chopIngredients(): string {
         return 'Chop ingredients to desired size\n';
     }
 }
 
 class CookingProcess {
-    public mixIngredients() {
+    public mixIngredients(): string {
         return 'Combine ingredients\n';
     }
 
-    public cookIngredients() {
+    public cookIngredients(): string {
         return 'Cook meal until ready\n';
     }
 }
 
-
+// Step 2. Creating a facade
 class prepareMealFacade {
     // Declaring subsystems
     protected buyIngredients: BuyIngredients;
@@ -52,7 +52,6 @@ class prepareMealFacade {
     }
 
     // Call the subsystem methods. Some methods might not be available on the facade
-
     public cookMeal(): string {
         let process = 'Initializing cooking process\n';
         process += this.buyIngredients.getIngredients();
@@ -65,7 +64,7 @@ class prepareMealFacade {
     }
 }
 
-// clientCode uses facade for a simple interface
+// Step 3. link facade to the client code
 function iAmHungry(facade: prepareMealFacade) {
     console.log(facade.cookMeal());
 }
